@@ -65,16 +65,10 @@ class ServiceProvider with ChangeNotifier {
 
   addLocation(String id,List locations)async{
     final String usersApiUrl = 'https://6176555a03178d00173dab77.mockapi.io/users/$id';
-    String parsedLocations = '';
-    for (var element in locations) {
-      parsedLocations += element;
-      if(element != locations.last){
-        parsedLocations += ',';
-      }
-    }
+
 
     final result = await http.patch(Uri.parse(usersApiUrl),body: {
-    'location': parsedLocations
+    'location': locations
     },headers: {
       'Accept': 'application/json'
     }).then((res) {
