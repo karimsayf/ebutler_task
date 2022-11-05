@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
               if(snapshot.data['lastLogin'] == null || snapshot.data['lastLogin'].isBefore(DateTime.now().subtract(Duration(hours: 1))) ){
                 return Authentication();
               }
-              return Authentication();
+              return Home();
             }
             return Container();
           },
